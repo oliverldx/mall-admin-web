@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import Cookies from 'js-cookie'
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
@@ -16,8 +17,14 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
-Vue.use(ElementUI, { locale })
+import * as filters from './filters' // global filters
+Vue.use(ElementUI, { size: Cookies.get('size') || 'medium' })
 Vue.use(VCharts)
+
+// register global utility filters
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 Vue.config.productionTip = false
 
