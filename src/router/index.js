@@ -358,6 +358,27 @@ export const asyncRouterMap = [
       }
     ]
   },
+  {
+    path:'/trs',
+    component: Layout,
+    redirect: '/trs/admin',
+    name: 'trs',
+    meta: {title: '培训课程', icon: 'ums'},
+    children: [
+      {
+        path: 'trsSchool',
+        name: 'trsSchool',
+        component: () => import('@/views/course/index'),
+        meta: {title: '培训机构', icon: 'order-setting'}
+      },
+      {
+        path: 'trsCourse',
+        name: 'trsCourse',
+        component: () => import('@/views/course/index'),
+        meta: {title: '课程管理', icon: 'order-setting'}
+      }
+    ]
+  },
   {path: '*', redirect: '/404', hidden: true}
 ]
 

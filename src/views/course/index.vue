@@ -1,4 +1,3 @@
-{{#if template}}
 <template>
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
@@ -42,19 +41,19 @@
                 v-loading="listLoading" border>
         <el-table-column type="selection" width="60" align="center"></el-table-column>
         <el-table-column label="编号" width="80" align="center">
-          <template slot-scope="scope">\{{scope.row.id}}</template>
+          <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
         <el-table-column label="TODO-字段1" width="180" align="center">
-          <template slot-scope="scope">\{{scope.row.TODOtmp1}}</template>
+          <template slot-scope="scope">{{scope.row.TODOtmp1}}</template>
         </el-table-column>
         <el-table-column label="TODO-字段2" width="180" align="center">
-          <template slot-scope="scope">\{{scope.row.TODOtmp2}}</template>
+          <template slot-scope="scope">{{scope.row.TODOtmp2}}</template>
         </el-table-column>
         <el-table-column label="TODO-字段3" align="center">
-          <template slot-scope="scope">\{{scope.row.TODOtmp3}}</template>
+          <template slot-scope="scope">{{scope.row.TODOtmp3}}</template>
         </el-table-column>
         <el-table-column label="TODO-字段4" align="center">
-          <template slot-scope="scope">\{{scope.row.TODOtmp4}}</template>
+          <template slot-scope="scope">{{scope.row.TODOtmp4}}</template>
         </el-table-column>
         <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
@@ -84,9 +83,7 @@
     </div>
   </div>
 </template>
-{{/if}}
 
-{{#if script}}
 <script>
 import {fetchList,del} from '@/api/course'
 
@@ -174,10 +171,7 @@ export default {
   }
 }
 </script>
-{{/if}}
 
-{{#if style}}
 <style lang="scss" scoped>
 
 </style>
-{{/if}}

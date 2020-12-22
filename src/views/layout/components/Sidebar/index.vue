@@ -16,6 +16,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import store from '@/store'
+import router from '@/router'
 import SidebarItem from './SidebarItem'
 import ScrollBar from '@/components/ScrollBar'
 
@@ -24,10 +26,17 @@ export default {
   computed: {
     ...mapGetters([
       'sidebar',
-      'routers'
+      'name',
+      'routers',
+      'menus'
     ]),
     routes() {
       // return this.$router.options.routes
+      let username = this.name
+      let userMenus = this.menus
+      store.dispatch('GenerateRoutes', { userMenus,username }).then(() => { // 生成可访问的路由表
+            router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
+          })
       return this.routers
     },
     isCollapse() {
