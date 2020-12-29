@@ -361,21 +361,47 @@ export const asyncRouterMap = [
   {
     path:'/trs',
     component: Layout,
-    redirect: '/trs/admin',
+    redirect: '/trs/Course',
     name: 'trs',
     meta: {title: '培训课程', icon: 'ums'},
     children: [
       {
         path: 'trsSchool',
         name: 'trsSchool',
-        component: () => import('@/views/course/index'),
+        component: () => import('@/views/trs/school/index'),
         meta: {title: '培训机构', icon: 'order-setting'}
       },
       {
         path: 'trsCourse',
         name: 'trsCourse',
-        component: () => import('@/views/course/index'),
+        component: () => import('@/views/trs/course/index'),
         meta: {title: '课程管理', icon: 'order-setting'}
+      },
+      {
+        path: 'addCourse',
+        name: 'addCourse',
+        component: () => import('@/views/trs/course/add'),
+        meta: {title: '添加课程', icon: 'product-add'}
+      },
+      {
+        path: 'addSchool',
+        name: 'addSchool',
+        component: () => import('@/views/trs/school/add'),
+        meta: {title: '添加机构', icon: 'product-add'}
+      },
+      {
+        path: 'updateSchool',
+        name: 'updateSchool',
+        component: () => import('@/views/trs/school/update'),
+        meta: {title: '修改机构', icon: 'product-add'},
+        hidden: true
+      },
+      {
+        path: 'updateCourse',
+        name: 'updateCourse',
+        component: () => import('@/views/trs/course/update'),
+        meta: {title: '修改课程', icon: 'product-add'},
+        hidden: true
       }
     ]
   },

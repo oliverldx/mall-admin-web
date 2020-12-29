@@ -20,6 +20,13 @@ let tmpdata = {
 
 export function fetchList(params) {
   {{#if apitmpdata}}
+    /* 
+      return request({
+        url:'TODO-url-path',
+        method:'get',
+        params:params
+      })
+    */
     return new Promise((resolve, reject) => {
         resolve(tmpdata);
     })
