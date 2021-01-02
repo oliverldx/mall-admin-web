@@ -405,6 +405,35 @@ export const asyncRouterMap = [
       }
     ]
   },
+  {
+    path:'/trs',
+    component: Layout,
+    redirect: '/trs/Activity',
+    name: 'trsActivity',
+    meta: {title: '活动相关', icon: 'ums'},
+    children: [
+      {
+        path: 'trsActivity',
+        name: 'trsActivity',
+        component: () => import('@/views/trs/activity/index'),
+        meta: {title: '活动管理', icon: 'order-setting'}
+      },
+      {
+        path: 'addActivity',
+        name: 'addActivity',
+        component: () => import('@/views/trs/activity/add'),
+        meta: {title: '添加', icon: 'product-add'},
+        hidden: true
+      },
+      {
+        path: 'updateActivity',
+        name: 'updateActivity',
+        component: () => import('@/views/trs/activity/update'),
+        meta: {title: '修改', icon: 'product-add'},
+        hidden: true
+      }
+    ]
+  },
   {path: '*', redirect: '/404', hidden: true}
 ]
 
